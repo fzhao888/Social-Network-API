@@ -6,6 +6,8 @@ getSingleUser,
 createUser,
 deleteUser,
 updateUser,
+addFriend,
+deleteFriend,
 
 } = '../../controllers/userController.js'
 
@@ -23,5 +25,11 @@ router.route('/:userId').get(getSingleUser).put(updateUser);
 
 // delete user by id
 router.route('/:userId').get(getSingleUser).delete(deleteUser);
+
+// add a friend
+router.route(':userId/friends/:friendId').get(getSingleUser).post(addFriend);
+
+// delete a friend
+router.route(':userId/friends/:friendId').get(getSingleUser).delete(deleteFriend);
 
 module.exports = router;
