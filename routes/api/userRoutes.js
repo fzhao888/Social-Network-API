@@ -9,7 +9,7 @@ updateUser,
 addFriend,
 deleteFriend,
 
-} = '../../controllers/userController.js'
+} = '../../controllers/userController.js';
 
 // get all users
 router.route('/').get(getUsers);
