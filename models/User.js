@@ -13,10 +13,11 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            validate: {
-                validator: () => Promise.resolve(false),
-                message: 'Email validation failed'
-            }
+            match: 
+            [
+                /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                "Email invalid"
+            ]
         },
         thoughts: [
             {
@@ -48,7 +49,7 @@ userSchema
         return this.friends.length;
     })
 
-    // Initialize our User model
-    const User = model('user, userSchema');
+// Initialize our User model
+const User = model('user', userSchema);
 
-    module.exports = User;
+module.exports = User;
