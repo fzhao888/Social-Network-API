@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const Reaction = require('./Reaction');
+const moment = require('moment');
+const timezone = require('moment-timezone');
 
 const thoughtSchema = new Schema(
     // Schema for Thought model
@@ -14,7 +16,7 @@ const thoughtSchema = new Schema(
             type: Date,
             default: Date.now,
             timestamps: true,
-            get: ( formatDate ) => moment( formatDate ).format('MM [/] DD [/] YYYY hh:mm A'),
+            get: ( formatDate ) => moment( formatDate ).tz('America/Chicago').format('MM[/]DD[/]YYYY, hh:mm A z'),
         },
         username: {
             type: String,
