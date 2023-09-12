@@ -11,25 +11,20 @@ deleteFriend,
 
 } = '../../controllers/userController.js';
 
-// get all users
-router.route('/').get(getUsers);
+// /api/users 
+router.route('/')
+    .get(getUsers)
+    .post(createUser); 
 
-// create user
-router.route('/').get(getUsers).post(createUser);
+// /api/users/:userId
+router.route('/:userId')
+    .get(getSingleUser)
+    .put(updateUser)
+    .delete(deleteUser);
 
-// get single user by id
-router.route('/:userId').get(getSingleUser);
-
-// update user by id
-router.route('/:userId').get(getSingleUser).put(updateUser);
-
-// delete user by id
-router.route('/:userId').get(getSingleUser).delete(deleteUser);
-
-// add a friend
-router.route(':userId/friends/:friendId').get(getSingleUser).post(addFriend);
-
-// delete a friend
-router.route(':userId/friends/:friendId').get(getSingleUser).delete(deleteFriend);
+//  /api/users/:userId/friends/:friendId
+router.route(':userId/friends/:friendId')
+    .post(addFriend)
+    .delete(deleteFriend);
 
 module.exports = router;
