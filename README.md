@@ -30,6 +30,7 @@ To install mongoose, please run `npm install mongoose` in a command line termina
 To use the Social Network API, please navigate to the source folder and open up the command line terminal. Then, install all the necessary npm packages and run 'node index' in the command line terminal to start the application. Enjoy!
 
 Below is a link to a sample walkthrough video:
+https://drive.google.com/file/d/1qljjh-w_8yjzbyqdtwUIXTaaIbmKwnrw/view
 
 ## License
 
