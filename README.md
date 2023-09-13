@@ -15,13 +15,13 @@ This Social Network API was created with Express and Mongoose to assist social m
 
 ## Installation
 
-To install express, please run `npm install express` in a command line terminal.
+To install Express, please run `npm install express` in a command line terminal.
 
-To install moment, please run `npm install moment` in a command line terminal.
+To install Moment, please run `npm install moment` in a command line terminal.
 
-To install moment-timezone, please run `npm install moment-timezone` in a command line terminal.
+To install Moment Timezone, please run `npm install moment-timezone` in a command line terminal.
 
-To install mongoose, please run `npm install mongoose` in a command line terminal.
+To install Mongoose, please run `npm install mongoose` in a command line terminal.
 
 
 ## Usage
