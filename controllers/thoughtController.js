@@ -29,13 +29,16 @@ module.exports = {
     // create a thought
     async createThought(req, res) {
         try {
-            const thought = await Thought.create(req.body);
-            const user = await User.findByIdAndUpdate(req.body.userId,
-                { $addToSet: { thoughts: thoughts._id } },
-                { runValidators: true, new: true }
-            );
+            const thought = await Thought.create(req.body);  
+            
+            const user =
+                await User.findOneAndUpdate(
+                    { username: req.body.username },
+                    { $addToSet: { thoughts: thought._id } },
+                    { runValidators: true, new: true }
+                );
 
-            res.json(thought);
+            res.json(user);
         } catch (err) {
             res.status(500).json(err);
         }
@@ -109,7 +112,7 @@ module.exports = {
             const thought =
                 await Thought.findByIdAndUpdate(req.params.thoughtId,
                     { $pull: { reactions: { reactionId: req.params.reactionId } } },
-                    { runValidators:true, new: true }
+                    { runValidators: true, new: true }
                 );
 
             if (!thought) {
